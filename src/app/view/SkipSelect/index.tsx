@@ -62,6 +62,8 @@ export default function SkipSelect() {
                 ))}
               </div>
             )}
+
+            {!skips.length && <EmptyState />}
           </AppLoader>
 
           <div className="fixed bottom-0 left-0 right-0 bg-card-bg border-t border-default p-4 animate-slideUp z-50">
@@ -132,5 +134,11 @@ const SkipsSkeletonLoader = () => (
           <div className="mt-6 h-12  bg-[#1E1E1E]  rounded-lg animate-pulse"></div>
         </div>
       ))}
+  </div>
+);
+
+const EmptyState = () => (
+  <div className="py-10">
+    <h1 className="text-2xl text-center">No skips to display here</h1>
   </div>
 );

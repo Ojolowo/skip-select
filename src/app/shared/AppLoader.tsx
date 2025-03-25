@@ -15,7 +15,7 @@ export default function AppLoader(props: Props) {
 
   return (
     <div className="w-full min-h-max">
-      {!error && children}
+      {!error && !loading && children}
 
       {error && (
         <div className="flex flex-col items-center gap-2 py-10">
