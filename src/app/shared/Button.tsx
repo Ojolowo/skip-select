@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-interface Props extends React.HTMLAttributes<HTMLButtonElement> {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'default';
   variant?: 'secondary' | 'primary';
   disabled?: boolean;
