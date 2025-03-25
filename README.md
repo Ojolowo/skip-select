@@ -40,7 +40,7 @@ To run the project locally, follow these steps:
 1. Clone the repository.
 2. Install dependencies using `npm install`.
 3. Start the development server with `npm run dev`.
-4. Open your browser and navigate to `http://localhost:3000`.
+4. Open your browser and navigate to `http://localhost:5173`.
 
 ## Environment Variables
 
