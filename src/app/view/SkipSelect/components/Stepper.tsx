@@ -18,10 +18,12 @@ export default function Stepper() {
         {steps.map((step, index) => (
           <React.Fragment key={step.label}>
             <button
-              className={classNames('flex items-center whitespace-nowrap transition-colors', {
-                'text-prime-blue cursor-pointer hover:text-prime-blue': step.active,
-                ' text-white/60 cursor-not-allowed opacity-50': !step.active,
-              })}
+              className={classNames(
+                'flex items-center whitespace-nowrap transition-colors',
+                step.active
+                  ? 'text-prime-blue cursor-pointer hover:text-prime-blue'
+                  : 'text-white/60 cursor-not-allowed opacity-50',
+              )}
               disabled={step.disabled}
             >
               <step.icon className="w-6 h-6 shrink-0" />

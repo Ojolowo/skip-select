@@ -31,7 +31,6 @@ export default function SkipCard({ selected, skip, onSelect }: Props) {
     <div
       role="button"
       onClick={() => onSelect(selected ? undefined : skip.id)}
-      key={skip.id}
       className={classNames(
         'group relative rounded-lg border-2 border-default hover:border-[#0037c180] p-4 md:p-6 transition-all duration-300 bg-card-bg text-white cursor-pointer',
         { 'border-prime-blue hover:border-prime-blue': selected },
