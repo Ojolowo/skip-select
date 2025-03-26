@@ -10,7 +10,7 @@ import { BASE_API_URL } from '@/constants/variables';
 const SKIPS_API_URL = `${BASE_API_URL}/skips/by-location?postcode=NR32&area=Lowestoft`;
 
 export default function SkipSelect() {
-  const [skips, setSkips] = useState<Skip[]>([]);
+  const [skips, setSkips] = useState<Skip[]>();
   const [requestStatus, setRequestStatus] = useState<'loading' | 'error'>();
   const [selected, setSelected] = useState<number>();
 
@@ -55,15 +55,19 @@ export default function SkipSelect() {
             onRetry={fetchSkipsSizes}
             loader={<SkipsSkeletonLoader />}
           >
-            {!!skips.length && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                {skips.map((skip) => (
-                  <SkipCard skip={skip} key={skip.id} onSelect={setSelected} selected={selected === skip.id} />
-                ))}
-              </div>
-            )}
+            {skips && (
+              <>
+                {!!skips.length && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    {skips.map((skip) => (
+                      <SkipCard skip={skip} key={skip.id} onSelect={setSelected} selected={selected === skip.id} />
+                    ))}
+                  </div>
+                )}
 
-            {!skips.length && <EmptyState />}
+                {!skips.length && <EmptyState />}
+              </>
+            )}
           </AppLoader>
 
           <div className="fixed bottom-0 left-0 right-0 bg-card-bg border-t border-default p-4 animate-slideUp z-50">
